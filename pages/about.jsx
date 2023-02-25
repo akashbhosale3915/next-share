@@ -1,10 +1,9 @@
 import Head from "next/head";
-import Link from "next/link";
+import React from "react";
 import { FacebookIcon, FacebookShareButton } from "react-share";
-import img from "../assets/pexels-dominika-mazur-14446665.jpg";
+import img from "../public/quotes-about-change-1580500675.jpg";
 
-export default function Home({ meta }) {
-  console.log(meta);
+const About = ({ meta }) => {
   return (
     <>
       <Head>
@@ -37,25 +36,24 @@ export default function Home({ meta }) {
         <meta property="og:site_name" content="ESSTE" />
         <meta property="og:description" content={meta.description} />
       </Head>
-      <FacebookShareButton url="https://next-share-rouge.vercel.app">
+      <FacebookShareButton url="https://next-share-rouge.vercel.app/about">
         <FacebookIcon size={36} />
       </FacebookShareButton>
       <img src={meta.imgLink.src} alt="" height={300} width={300} />
-      <Link href="/about">
-        <button>ABOUT</button>
-      </Link>
     </>
   );
-}
+};
 
 export function getServerSideProps() {
   const meta = {
     imgLink: img,
-    title: "NEXT SHARE",
+    title: "ABOUT NEXT SHARE",
     description:
-      "This is a preview of the next share on Facebook server side of the site you are viewing right now on the site you are viewing right now on the site you are viewing right now on the site you are viewing right now on the site you are  viewing right now on the site you are viewing right now on the site you are",
+      "This is a preview of the next ABOUT PAGE share on Facebook server side of the site you are viewing right now on the site you are viewing right now on the site you are viewing right now on the site you are viewing right now on the site you are  viewing right now on the site you are viewing right now on the site you are",
   };
   return {
     props: { meta },
   };
 }
+
+export default About;
